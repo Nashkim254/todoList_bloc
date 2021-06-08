@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:todo_bloc/constants/pallete.dart';
 import 'package:todo_bloc/pages/todo_screen.dart';
 
 class HomePage extends StatelessWidget {
@@ -15,7 +14,8 @@ class HomePage extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => CreateTodo()));
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => CreateTodo()));
         },
       ),
     );
@@ -31,7 +31,8 @@ class HomePage extends StatelessWidget {
                 elevation: 2,
                 child: ListTile(
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => CreateTodo()));
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => CreateTodo()));
                   },
                   leading: Container(
                     margin: EdgeInsets.only(left: 12.0, top: 5),
@@ -42,7 +43,8 @@ class HomePage extends StatelessWidget {
                   ),
                   title: Text('Title'),
                   subtitle: Text('26/5/2021'),
-                  trailing: IconButton(icon: Icon(Icons.delete), onPressed: () {}),
+                  trailing:
+                      IconButton(icon: Icon(Icons.delete), onPressed: () {}),
                 ),
               )
             ],
