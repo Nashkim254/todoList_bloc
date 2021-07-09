@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todo_bloc/bloc/todo_bloc.dart';
 import 'package:todo_bloc/models/todo_model.dart';
 import 'package:todo_bloc/pages/todo_list.dart';
+import 'package:todo_bloc/pages/todo_screen.dart';
 
 class TodoPage extends StatelessWidget {
   final TextEditingController todoController = TextEditingController();
@@ -46,11 +47,12 @@ class TodoPage extends StatelessWidget {
           FloatingActionButton(
             heroTag: 'button1',
             onPressed: () {
-              context.read<TodoBloc>().add(
-                    TodoEvent.add(
-                      Todo(todoController.text),
-                    ),
-                  );
+              if (todoController.text != "")
+                context.read<TodoBloc>().add(
+                      TodoEvent.add(
+                        Todo(todoController.text),
+                      ),
+                    );
               todoController.clear();
             },
             child: Icon(Icons.add),
@@ -62,7 +64,7 @@ class TodoPage extends StatelessWidget {
             heroTag: 'button2',
             onPressed: () {
               Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (_) => TodoPage()));
+                  .push(MaterialPageRoute(builder: (_) => TodoScreen()));
             },
             child: Icon(Icons.next_plan_sharp),
           ),
