@@ -8,6 +8,7 @@ import 'package:todo_bloc/pages/todo_screen.dart';
 
 class TodoPage extends StatelessWidget {
   final TextEditingController todoController = TextEditingController();
+  final String errorText = "Field cannot be empty!";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,10 +26,11 @@ class TodoPage extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.all(12.0),
-                  child: TextField(
+                  child: TextFormField(
                     controller: todoController,
                     decoration: InputDecoration(
                       hintText: 'Listening to music',
+                      errorText: errorText,
                     ),
                   ),
                 ),
